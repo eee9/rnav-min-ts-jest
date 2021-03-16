@@ -2,17 +2,12 @@
 /* eslint-disable dot-notation */
 /* eslint-disable jest/no-disabled-tests */
 import 'react-native';
-import React from 'react';
-import {App} from '../src/App';
+//import React from 'react';
+//import {App} from '../src/App';
 
 const cc = console.log;
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-
-//it.skip('renders correctly', () => {
-xit('renders correctly', () => {
-  renderer.create(<App />);
-});
 
 interface IData {
   one: number;
@@ -69,20 +64,49 @@ xtest('compiling android goes as expected', () => {
   expect(() => compileAndroidCode()).toThrow(/JDK/);
 });
 
-interface IFetch {
-  (message: string): void;
-}
-const fetchData = async (): Promise<string> => {
-  return new Promise((res, rej) => {
-    res('hi');
-  });
-  //return 'Hi!';
+const fetchDataCB = (cb: (s: string) => void): void => {
+  setTimeout(() => {
+    cb('peanut butter');
+  }, 1100);
 };
 
-test('the data is peanut butter', async () => {
+test('the data is peanut butter /callback', (done) => {
+  jest.setTimeout(1000);
+  const callback = (data: string) => {
+    try {
+      expect(data).toBe('peanut butter');
+      done();
+    } catch (error) {
+      done(error);
+    }
+  };
+  fetchDataCB(callback);
+});
+
+const fetchData = async (): Promise<string> => {
+  return new Promise((res, rej) => {
+    res('peanut butter');
+  });
+};
+
+xtest('the data is peanut butter /promise', () => {
+  return fetchData().then((data) => {
+    expect(data).toBe('peanut butter');
+  });
+});
+
+xtest('the data is peanut butter /resolves', () => {
+  return expect(fetchData()).resolves.toBe('peanut butter');
+});
+
+xtest('the fetch fails with an error /rejects', () => {
+  return expect(fetchData()).rejects.toMatch('error');
+});
+
+xtest('the data is peanut butter /async', async () => {
   const data = await fetchData();
   //cc('data => "' + data + '"');
-  expect(data).toBe('hi');
+  expect(data).toBe('peanut butter');
 });
 
 xtest('the fetch fails with an error', async () => {
