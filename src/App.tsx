@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import {
   SafeAreaView,
@@ -8,14 +9,18 @@ import {
   BackHandler,
 } from 'react-native';
 
-const App = () => {
+import * as Sum from './sum';
+
+export const App = () => {
+  const a = 2;
+  const b = 73;
+  const sum = Sum.sum(a, b);
   return (
     <SafeAreaView style={styles.flex1}>
       <View style={styles.sectionContainer}>
-        <Text style={styles.sectionTitle}>r04, L3G. npm, android upd, TS.</Text>
-        <Text style={styles.sectionDescription}>
-          Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-          screen and then come back to see your edits.
+        <Text style={styles.sectionTitle}>r01, L3G. Jest tests.</Text>
+        <Text style={styles.text}>
+          {a} + {b} = {sum}
         </Text>
         <Button title="Exit" onPress={BackHandler.exitApp} />
       </View>
@@ -29,24 +34,23 @@ const styles = StyleSheet.create({
     backgroundColor: 'cyan',
   },
   sectionContainer: {
-    marginTop: 26,
-    paddingHorizontal: 24,
+    flex: 1,
+    justifyContent: 'space-between',
+    marginTop: 0,
+    paddingHorizontal: 20,
+    paddingVertical: 20,
+    borderColor: 'red',
+    borderWidth: 3,
   },
   sectionTitle: {
     fontSize: 22,
     fontWeight: 'bold',
     color: 'blue',
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 16,
-    fontWeight: '400',
+  text: {
+    textAlign: 'center',
+    fontSize: 28,
+    fontWeight: 'normal',
     color: 'black',
-    paddingBottom: 20,
-  },
-  highlight: {
-    fontWeight: '700',
   },
 });
-
-export default App;
