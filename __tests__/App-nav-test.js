@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import 'react-native';
 import React from 'react';
 import App from '../src/App-nav';
