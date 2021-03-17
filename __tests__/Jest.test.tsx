@@ -6,6 +6,10 @@ import 'react-native';
 //import {App} from '../src/App';
 
 const cc = console.log;
+//const mit = it;
+//const mtest = test;
+const mit = xit;
+const mtest = xtest;
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
@@ -15,7 +19,7 @@ interface IData {
   three: number;
 }
 
-xit('object assignment', () => {
+mit('object assignment', () => {
   const _one = 1;
   const two = 'message 2';
   const three = 3;
@@ -25,7 +29,7 @@ xit('object assignment', () => {
   expect(data).toEqual({one: _one, two, three});
 });
 
-xtest('null', () => {
+mtest('null', () => {
   const n = null;
   expect(n).toBeNull();
   expect(n).toBeDefined();
@@ -34,7 +38,7 @@ xtest('null', () => {
   expect(n).toBeFalsy();
 });
 
-xtest('zero', () => {
+mtest('zero', () => {
   const z = 0;
   expect(z).not.toBeNull();
   expect(z).toBeDefined();
@@ -43,7 +47,7 @@ xtest('zero', () => {
   expect(z).toBeFalsy();
 });
 
-xtest('adding floating point numbers', () => {
+mtest('adding floating point numbers', () => {
   const value = 0.1 + 0.2;
   // Це не спрацює через помилку окгруглення!
   //expect(value).toBe(0.3);
@@ -55,7 +59,7 @@ const compileAndroidCode = () => {
   throw new Error('you are using the wrong JDK');
 };
 
-xtest('compiling android goes as expected', () => {
+mtest('compiling android goes as expected', () => {
   expect(() => compileAndroidCode()).toThrow();
   expect(() => compileAndroidCode()).toThrow(Error);
 
@@ -67,10 +71,10 @@ xtest('compiling android goes as expected', () => {
 const fetchDataCB = (cb: (s: string) => void): void => {
   setTimeout(() => {
     cb('peanut butter');
-  }, 1000);
+  }, 100);
 };
 
-test('the data is peanut butter /callback', (done) => {
+mtest('the data is peanut butter /callback', (done) => {
   jest.setTimeout(2000);
   const callback = (data: string) => {
     try {
@@ -89,24 +93,24 @@ const fetchData = async (): Promise<string> => {
   });
 };
 
-xtest('the data is peanut butter /promise', () => {
+mtest('the data is peanut butter /promise', () => {
   return fetchData().then((data) => {
     expect(data).toBe('peanut butter');
   });
 });
 
-xtest('the data is peanut butter /resolves', () => {
+mtest('the data is peanut butter /resolves', () => {
   return expect(fetchData()).resolves.toBe('peanut butter');
+});
+
+mtest('the data is peanut butter /async', async () => {
+  const data = await fetchData();
+  //cc('data => "' + data + '"');
+  expect(data).toBe('peanut butter');
 });
 
 xtest('the fetch fails with an error /rejects', () => {
   return expect(fetchData()).rejects.toMatch('error');
-});
-
-xtest('the data is peanut butter /async', async () => {
-  const data = await fetchData();
-  //cc('data => "' + data + '"');
-  expect(data).toBe('peanut butter');
 });
 
 xtest('the fetch fails with an error', async () => {

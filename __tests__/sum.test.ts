@@ -1,5 +1,4 @@
-//const sum = require('./sum');
-import {sum} from './sum';
+import {sum} from '../src/sum';
 
 // eslint-disable-next-line jest/no-disabled-tests
 xdescribe('Test of sum.ts', () => {
