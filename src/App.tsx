@@ -16,7 +16,7 @@ type RootDrawerParamList = {
 function Home({navigation}: DrawerScreenProps<RootDrawerParamList>) {
   return (
     <View style={styles.HomeStyle}>
-      <Text>r01, L3D, Drawer. Home screen</Text>
+      <Text>r03ide, L3H, Drawer. Home screen</Text>
       <Text> </Text>
       <Button
         title="Go to Profile"

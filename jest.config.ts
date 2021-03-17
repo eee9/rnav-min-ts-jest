@@ -5,6 +5,11 @@ import type {Config} from '@jest/types';
 const config: Config.InitialOptions = {
   verbose: true,
   //verbose: false,
+  preset: 'react-native',
+  setupFiles: ['./jest-setup.js'],
+  transformIgnorePatterns: [
+    'node_modules/(?!(jest-)?react-native|@react-native-community|@react-navigation)',
+  ],
 };
 export default config;
 
