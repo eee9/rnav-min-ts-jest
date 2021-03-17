@@ -67,11 +67,11 @@ xtest('compiling android goes as expected', () => {
 const fetchDataCB = (cb: (s: string) => void): void => {
   setTimeout(() => {
     cb('peanut butter');
-  }, 1100);
+  }, 1000);
 };
 
 test('the data is peanut butter /callback', (done) => {
-  jest.setTimeout(1000);
+  jest.setTimeout(2000);
   const callback = (data: string) => {
     try {
       expect(data).toBe('peanut butter');
