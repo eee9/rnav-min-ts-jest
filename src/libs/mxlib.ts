@@ -134,7 +134,7 @@ export const replaceAll = (str: string, find: string, replace: string) => {
 };
 
 //--------------------------------------------------------------------------------------------------
-// eslint-disable-next-line no-shadow
+// // eslint-disable-next-line no-shadow
 enum OBJTYPE {
   FUNC = 'function',
   OBJ = 'object',

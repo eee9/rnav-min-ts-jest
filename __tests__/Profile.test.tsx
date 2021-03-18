@@ -2,20 +2,16 @@ import 'react-native';
 import React from 'react';
 import {cleanup, render} from '@testing-library/react-native';
 
-import {Home, IHome} from '../src/components/Home';
+import {Profile} from '../src/components/Profile';
 
-const navigation = null;
-const props: IHome = {
-  runVer: 'r00, L00',
-  message: 'Message for Home.test!',
-};
+const navigation: any = null;
 
-describe('Home.tsx render', () => {
+describe('Profile.tsx render', () => {
   //Unmounts React trees that were mounted with render to prevent memory leak.
   afterEach(cleanup);
 
   it('@testing-library/react-native renders correctly', () => {
-    const {toJSON} = render(<Home {...props} {...navigation} />);
+    const {toJSON} = render(<Profile {...navigation} />);
     expect(toJSON()).toMatchSnapshot();
   });
 });

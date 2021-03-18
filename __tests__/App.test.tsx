@@ -4,7 +4,7 @@ import 'react-native';
 import React from 'react';
 import {App} from '../src/App';
 
-import {render} from '@testing-library/react-native';
+import {cleanup, render} from '@testing-library/react-native';
 import renderer from 'react-test-renderer';
 
 // Silence the warning: Animated: `useNativeDriver` is not supported because the native animated module is missing
@@ -16,6 +16,8 @@ const cc = console.log;
 const LL = '\n';
 
 describe('r01, L3I. App-nav renders... ', () => {
+  //Unmounts React trees that were mounted with render to prevent memory leak.
+  afterEach(cleanup);
   xit('react-test-renderer renders correctly', () => {
     renderer.create(<App />);
   });

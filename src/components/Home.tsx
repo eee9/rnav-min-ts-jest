@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import 'react-native-gesture-handler';
 import * as React from 'react';
 import {Button, Text, View, StyleSheet, BackHandler} from 'react-native';
 
@@ -19,15 +18,9 @@ export const Home = (props: IDrawer & IHome) => {
       <Text>{props.runVer}, Drawer. Home screen</Text>
       <Text>message: [{props.message}]</Text>
       <Text> </Text>
-      <Button
-        title="Go to Profile"
-        onPress={() => props.navigation.navigate('Profile')}
-      />
+      <Button title="Go to Profile" onPress={() => props.navigation.navigate('Profile')} />
       <Text> </Text>
-      <Button
-        title="Go to Settings"
-        onPress={() => props.navigation.navigate('Settings')}
-      />
+      <Button title="Go to Settings" onPress={() => props.navigation.navigate('Settings')} />
       <Text> </Text>
       <Button title="Exit" onPress={BackHandler.exitApp} />
     </View>

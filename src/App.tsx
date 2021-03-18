@@ -1,49 +1,19 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import 'react-native-gesture-handler';
 import * as React from 'react';
-import {Button, Text, View, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
-import {cc, J} from './libs/mxlib';
-
 import {IDrawer} from './types';
 import {Home} from './components/Home';
+import {Profile} from './components/Profile';
+import {Settings} from './components/Settings';
 
-const RUN_VER = 'r03, L3I';
-
-function Profile({navigation}: IDrawer) {
-  return (
-    <View style={styles.ProfileStyle}>
-      <Text>Profile screen</Text>
-      <Text> </Text>
-      <Button
-        title="Go to Settings"
-        onPress={() => navigation.navigate('Settings')}
-      />
-      <Text> </Text>
-      <Button title="Go back" onPress={() => navigation.goBack()} />
-    </View>
-  );
-}
-
-function Settings({navigation}: IDrawer) {
-  return (
-    <View style={styles.SettingsStyle}>
-      <Text>Settings screen</Text>
-      <Text> </Text>
-      <Button title="Go back" onPress={() => navigation.goBack()} />
-      <Text> </Text>
-      <Button title="Go Home" onPress={() => navigation.navigate('Home')} />
-    </View>
-  );
-}
+const RUN_VER = 'r04, L3I';
 
 const Drawer = createDrawerNavigator();
 
 const _Home = (props: IDrawer) => {
-  //cc('_Home(). props =>');
-  //cc(J(props));
   return <Home {...props} runVer={RUN_VER} message={'of App.tsx'} />;
 };
 
@@ -69,23 +39,5 @@ const styles = StyleSheet.create({
     width: 150,
     alignContent: 'center',
     justifyContent: 'center',
-  },
-  HomeStyle: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'cyan',
-  },
-  ProfileStyle: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'lightyellow',
-  },
-  SettingsStyle: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'lightgreen',
   },
 });
