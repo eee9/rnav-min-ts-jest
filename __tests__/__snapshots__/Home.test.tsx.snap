@@ -12,7 +12,13 @@ exports[`Home.tsx render @testing-library/react-native renders correctly 1`] = `
   }
 >
   <Text>
-    r01, L3I, Drawer. Home screen
+    r00, L00
+    , Drawer. Home screen
+  </Text>
+  <Text>
+    message: [
+    Message for Home.test!
+    ]
   </Text>
   <Text>
      

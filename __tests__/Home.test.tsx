@@ -1,21 +1,18 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import 'react-native';
 import React from 'react';
-//import {DrawerScreenProps} from '@react-navigation/drawer';
-
 import {render} from '@testing-library/react-native';
 
-import {Home} from '../src/components/Home';
+import {Home, IHome} from '../src/components/Home';
 
-//import {RootDrawerParamList} from '../src/types';
-
-//type IDr = DrawerScreenProps<RootDrawerParamList>;
-//const a: IDr = jest.mock();
-const props: any = '';
+const navigation = null;
+const props: IHome = {
+  runVer: 'r00, L00',
+  message: 'Message for Home.test!',
+};
 
 describe('Home.tsx render', () => {
   it('@testing-library/react-native renders correctly', () => {
-    const {toJSON} = render(<Home {...props} />);
+    const {toJSON} = render(<Home {...props} {...navigation} />);
     expect(toJSON()).toMatchSnapshot();
   });
 });

@@ -1,16 +1,18 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import {Button, Text, View, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import {
-  createDrawerNavigator,
-  DrawerScreenProps,
-} from '@react-navigation/drawer';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 
-import {RootDrawerParamList} from './types';
+import {cc, J} from './libs/mxlib';
+
+import {IDrawer} from './types';
 import {Home} from './components/Home';
 
-function Profile({navigation}: DrawerScreenProps<RootDrawerParamList>) {
+const RUN_VER = 'r03, L3I';
+
+function Profile({navigation}: IDrawer) {
   return (
     <View style={styles.ProfileStyle}>
       <Text>Profile screen</Text>
@@ -25,7 +27,7 @@ function Profile({navigation}: DrawerScreenProps<RootDrawerParamList>) {
   );
 }
 
-function Settings({navigation}: DrawerScreenProps<RootDrawerParamList>) {
+function Settings({navigation}: IDrawer) {
   return (
     <View style={styles.SettingsStyle}>
       <Text>Settings screen</Text>
@@ -39,6 +41,12 @@ function Settings({navigation}: DrawerScreenProps<RootDrawerParamList>) {
 
 const Drawer = createDrawerNavigator();
 
+const _Home = (props: IDrawer) => {
+  //cc('_Home(). props =>');
+  //cc(J(props));
+  return <Home {...props} runVer={RUN_VER} message={'of App.tsx'} />;
+};
+
 export function App() {
   return (
     <NavigationContainer>
@@ -47,7 +55,7 @@ export function App() {
         initialRouteName="Home"
         openByDefault={true}
         drawerPosition={'right'}>
-        <Drawer.Screen name="Home" component={Home} />
+        <Drawer.Screen name="Home" component={_Home} />
         <Drawer.Screen name="Profile" component={Profile} />
         <Drawer.Screen name="Settings" component={Settings} />
       </Drawer.Navigator>
