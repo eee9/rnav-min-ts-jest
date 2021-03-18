@@ -3,7 +3,7 @@ import {sum} from '../src/sum';
 
 xit('foo', () => {});
 
-describe('Test of sum.ts', () => {
+xdescribe('Test of sum.ts', () => {
   test('adds 2 + 1 to equal 3', () => {
     expect(sum(2, 1)).toBe(3);
   });
