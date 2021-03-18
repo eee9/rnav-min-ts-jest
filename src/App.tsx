@@ -1,37 +1,14 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
-import {Button, Text, View, StyleSheet, BackHandler} from 'react-native';
+import {Button, Text, View, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {
   createDrawerNavigator,
   DrawerScreenProps,
 } from '@react-navigation/drawer';
 
-type RootDrawerParamList = {
-  Home: undefined;
-  Profile: undefined;
-  Settings: undefined;
-};
-
-function Home({navigation}: DrawerScreenProps<RootDrawerParamList>) {
-  return (
-    <View style={styles.HomeStyle}>
-      <Text>r03ide, L3H, Drawer. Home screen</Text>
-      <Text> </Text>
-      <Button
-        title="Go to Profile"
-        onPress={() => navigation.navigate('Profile')}
-      />
-      <Text> </Text>
-      <Button
-        title="Go to Settings"
-        onPress={() => navigation.navigate('Settings')}
-      />
-      <Text> </Text>
-      <Button title="Exit" onPress={BackHandler.exitApp} />
-    </View>
-  );
-}
+import {RootDrawerParamList} from './types';
+import {Home} from './components/Home';
 
 function Profile({navigation}: DrawerScreenProps<RootDrawerParamList>) {
   return (
