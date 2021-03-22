@@ -1,9 +1,4 @@
-# rn-ts-min
+# rnav-min-ts-jest
 
-React Native, TypeScript minimal app, L3G.
-TS version of rn-js-min for setup tests.
-npm updated.
-android & ios folder from JS version.
-Android check is OK.
-minSdkVersion changes from 16 to 21
-according to react-native@0.64.0.
+React Navigation v5, TypeScript, testing library minimal app, L3G.
+Note. Some packages aren't the latest version (see ncu*.txt).

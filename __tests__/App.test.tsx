@@ -23,13 +23,11 @@ describe('r01, L3I. App-nav renders... ', () => {
   });
 
   it('@testing-library/react-native renders correctly', () => {
-    render(<App />);
-    /*
+    //render(<App />);
     const {toJSON} = render(<App />);
-    let _app = toJSON();
-    cc('_app =>' + LL, _app);
+    //let _app = toJSON();
+    //cc('_app =>' + LL, _app);
     //cc('children =>' + LL, _app?.children);
-    expect(toJSON()?.children).toMatchSnapshot();
-    */
+    //expect(toJSON()).toMatchSnapshot();
   });
 });

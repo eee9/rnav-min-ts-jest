@@ -1,9 +1,13 @@
 /* eslint-disable jest/no-disabled-tests */
-import {sum} from '../src/sum';
+import {sum, div, init} from '../src/sum';
 
 xit('foo', () => {});
 
-xdescribe('Test of sum.ts', () => {
+describe('Test of sum.ts', () => {
+  test('init()', () => {
+    expect(init()).toBe('init() in libs/sum.ts');
+  });
+
   test('adds 2 + 1 to equal 3', () => {
     expect(sum(2, 1)).toBe(3);
   });
@@ -24,5 +28,13 @@ xdescribe('Test of sum.ts', () => {
   test('value - value = 0', () => {
     const value = 54;
     expect(sum(value, -1 * value)).toBe(0);
+  });
+
+  test('div 14 with 2 = 7', () => {
+    expect(div(14, 2)).toBe(7);
+  });
+
+  test('div 4 with 0 = Infinity', () => {
+    expect(div(4, 0)).toBe(Infinity);
   });
 });
